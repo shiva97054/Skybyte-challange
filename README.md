@@ -200,3 +200,5 @@ This project demonstrates a complete DevOps workflow including:
 
 The focus was on **small, meaningful improvements with clear reasoning**, rather than large rewrites.
 
+https://asciinema.org/a/XXXXX
+
