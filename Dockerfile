@@ -1,12 +1,18 @@
-FROM python:3.9
+FROM python:3.11-slim
+
+# Create non-root user
+RUN useradd -m appuser
 
 WORKDIR /app
 
-COPY app/requirements.txt .
-RUN pip install -r requirements.txt
+COPY app/ .
 
-COPY app/ /app/
+# Install dependencies if exists
+RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 80
+# Switch to non-root
+USER appuser
+
+EXPOSE 8080
 
 CMD ["python", "main.py"]
